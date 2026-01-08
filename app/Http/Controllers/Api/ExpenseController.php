@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class ExpenseController extends Controller
 {
     // GET /api/expenses
-    public function index()
+    public function index(): \Illuminate\Http\JsonResponse
     {
         $expenses = Expense::latest()->get();
 
@@ -21,7 +21,7 @@ class ExpenseController extends Controller
     }
 
     // POST /api/expenses
-    public function store(Request $request)
+    public function store(Request $request): \Illuminate\Http\JsonResponse
     {
         $validated = $request->validate([
             'title' => 'required|string|max:255',
